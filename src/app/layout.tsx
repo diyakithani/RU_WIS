@@ -40,10 +40,10 @@ export default function RootLayout({
 }
 
 export const navItems = [
-  { label: "Features", href: "#" },
-  { label: "Workflow", href: "#" },
-  { label: "Pricing", href: "#" },
+  { label: "Home", href: "#" },
+  { label: "Services We Provide", href: "#" },
   { label: "Testimonials", href: "#" },
+  { label: "Contact Us", href: "#" },
 ];
 
 export const testimonials = [
