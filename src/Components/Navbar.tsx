@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import logo from "../../assets/logo.png";
+import logo from "../assets/logo.png";
 import Image from 'next/image';
 import { navItems } from '@/app/layout';
 import { useState } from 'react';
@@ -18,8 +18,8 @@ const Navbar = () => {
             <div className="container px-4 mx-auto relative tx-sm">
                 <div className="flex justify-center items-center">
                     <div className="flex items-center flex-shrink-0">
-                        <Image src={logo} className='h-10 w-10 mr-2' alt="venturelogo" /> {/* logo change */}
-                        <span className="text-xl tracking-tight">RNRVentures</span>
+                        <Image src={logo} className='h-10 w-10' alt="venturelogo" /> {/* logo change */}
+                        <span className="text-xl tracking-tight mr-7">RNRVentures</span>
                     </div>
                     <ul className="hidden lg:flex ml-14 space-x-12">
                         {navItems.map((item, index) => (
@@ -27,15 +27,13 @@ const Navbar = () => {
                                 <a href={item.href}>{item.label}</a>
                             </li>
                         ))} </ul>
-                    <div className="hidden lg:flex justify-between space-x-12 items-center">
-                        <a href='#' className='py-2 px-3 border rounded-md'>
-                            Sign In
-                        </a>
+                    <div className="hidden lg:flex space-x-12 ml-8">
+
                         <a href='#' className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>
                             Contact Us
                         </a>
                     </div>
-                    <div className="lg:hidden md:flex flex-col justify-end">
+                    <div className="lg:hidden md:flex flex-col justify-end pl-3">
                         <button onClick={toggle}>
                             {MobileDrawerOpen ? <X /> : <Menu />}
                         </button>
