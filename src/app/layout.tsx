@@ -10,7 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>{metadata.title}</title>
-        <meta name='description'>{metadata.description}</meta>
+        <meta name='description' content={metadata.description} />
       </head>
       <body>
         {children}
