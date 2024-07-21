@@ -1,5 +1,5 @@
 import React from 'react';
-import { features } from '@/app/layout';
+import { features } from '../constants';
 
 const FeaturesSection = () => {
     return (

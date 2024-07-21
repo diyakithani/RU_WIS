@@ -3,7 +3,7 @@
 import React from 'react';
 import logo from "../assets/logo.png";
 import Image from 'next/image';
-import { navItems } from '@/app/layout';
+import { navItems } from '../constants';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
