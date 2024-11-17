@@ -13,8 +13,8 @@ import user5 from "./assets/profile-pictures/user5.jpg";
 import user6 from "./assets/profile-pictures/user6.jpg";
 
 export const metadata = {
-  title: "RNR VENTURES",
-  description: "A Website for Customized Electrical Solutions Brand.",
+  title: "Women In Stem",
+  description: "A website for Women In Stem community at Rutgers Camden",
 };
 export const navItems = [
   { label: "Home", href: "#" },
