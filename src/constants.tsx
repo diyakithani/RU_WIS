@@ -18,9 +18,8 @@ export const metadata = {
 };
 export const navItems = [
   { label: "Home", href: "#" },
-  { label: "Services We Provide", href: "#" },
-  { label: "Testimonials", href: "#" },
-  { label: "Contact Us", href: "#" },
+  { label: "About Us", href: "#" },
+
 ];
 
 export const testimonials = [

@@ -9,7 +9,7 @@ const FeaturesSection = () => {
                     features
                 </h3>
                 <h2 className='text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-10 tracking-wide'>
-                    WE GOT <span className='bg-gradient-to-r from-orange-400 to-orange-800 text-transparent bg-clip-text shadow-md'>YOUR BACK!</span>
+                    Meet <span className='bg-gradient-to-r from-orange-400 to-orange-800 text-transparent bg-clip-text shadow-md'>THE TEAM!</span>
                 </h2>
             </div>
             <div className='flex flex-wrap mt-10 lg:mt-20'>
