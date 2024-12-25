@@ -1,32 +1,83 @@
-import React from 'react';
-import { features } from '../constants';
+"use client";
+import React from "react";
+import Image from "next/image";
+import person1 from "../assets/profile-pictures/hoda.png";
+import person2 from "../assets/profile-pictures/diya.png";
+import person3 from "../assets/profile-pictures/emma.png";
+import person4 from "../assets/profile-pictures/krupa.png";
+import person5 from "../assets/profile-pictures/Leyna.png";
+
+const people = [
+  {
+    name: "Hoda Niaz",
+    role: "President",
+    major: "Computer Science and Psychology",
+    year: "Senior",
+    description: "FUN FACT- I am from Kashmir and I have two cats :p",
+    image: person1,
+  },
+  {
+    name: "Diya Kithani",
+    role: "Secretary",
+    major: "Computer Science and Mathematics",
+    year: "Senior",
+    description: "FUN FACT - I Powerlift! :)",
+    image: person2,
+  },
+  {
+    name: "Emma Bogdan",
+    role: "Events Coordinator",
+    major: "Biology",
+    year: "Junior",
+    description: "FUN FACT- I have a dog named Scooby! :)",
+    image: person3,
+  },
+  {
+    name: "Krupa Patel",
+    role: "Treasurer",
+    major: "Computer Science and Applied Computational Math",
+    year: "Senior",
+    description: "FUN FACT- I have a dog and four birds.",
+    image: person4,
+  },
+  {
+    name: "Leyna Nguyen",
+    role: "Public Representative",
+    major: "Biology",
+    year: "Junior",
+    description: "FUN FACT - I crochet stuffed animals!",
+    image: person5,
+  },
+];
 
 const FeaturesSection = () => {
-    return (
-        <div className='relative mt-5 border-b border-neutral-800 min-h-[800px]'>
-            <div className='text-center mb-0 mt-0 pt-0'>
-                <h3 className="bg-neutral-900 text-orange-500 rounded-full h-8 text-xl font-medium px-2 py-1 uppercase">
-                    features
-                </h3>
-                <h2 className='text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-10 tracking-wide'>
-                    Meet <span className='bg-gradient-to-r from-orange-400 to-orange-800 text-transparent bg-clip-text shadow-md'>THE TEAM!</span>
-                </h2>
+  return (
+    <section className="py-12 bg-gradient-to-br from-purple-100 to-pink-50">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl font-bold text-purple-900 text-center mb-8">
+          Meet The Women In STEM Team
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {people.map((person, index) => (
+            <div key={index} className="text-center bg-white p-6 rounded-lg shadow-lg">
+              <Image
+                src={person.image}
+                alt={person.name}
+                className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+              />
+              <h3 className="text-xl font-semibold text-purple-900">{person.name}</h3>
+              <p className="text-pink-600">{person.role}</p>
+              <p className="text-gray-700 italic">{person.major}</p>
+              <p className="text-purple-600 font-medium">{person.year}</p>
+              <p className="mt-2 text-gray-600">{person.description}</p>
             </div>
-            <div className='flex flex-wrap mt-10 lg:mt-20'>
-                {features.map((feature, index) => (
-                    <div key={index} className='w-full sm:w-1/2 lg:w-1/3 p-4'>
-                        <div className='flex flex-col items-center bg-neutral-900 p-6 rounded-lg'>
-                            <div className="flex justify-center items-center h-18 w-18 p-2 bg-neutral-900 text-orange-700 rounded-full mb-4">
-                                {feature.icon}
-                            </div>
-                            <h5 className='text-xl mb-2 text-center'>{feature.text}</h5>
-                            <p className='text-md text-neutral-200 text-center'>{feature.description}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+          ))}
         </div>
-    );
-}
+      </div>
+    </section>
+  );
+};
 
 export default FeaturesSection;
+
+
