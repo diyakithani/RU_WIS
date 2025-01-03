@@ -1,6 +1,9 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 
 const HeroSection = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [email, setEmail] = useState("");
   return (
     <div className="flex flex-col items-center bg-gradient-to-r from-purple-100 to-pink-200 min-h-screen py-10 px-4">
 
@@ -20,13 +23,39 @@ const HeroSection = () => {
       </p>
 
       <div className="flex justify-center mt-10">
-        <a
-          href="#"
+
+        <button
+          onClick={() => setModalOpen(true)}
           className="bg-gradient-to-r from-rose-400 to-purple-500 py-3 px-6 mx-3 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:scale-105 transition-transform duration-300"
         >
           SIGN UP FOR OUR NEWSLETTER!
-        </a>
+        </button>
       </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md">
+            <h2 className="text-2xl font-bold text-center mb-4">
+              Sign Up for Our Newsletter
+            </h2>
+            <input
+              type="email"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <div className="flex justify-end mt-4">
+              <button
+                onClick={() => setModalOpen(false)}
+                className="px-4 py-2 mr-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
+              >
+                Cancel
+              </button>
+
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="flex mt-10 justify-center w-full">
         <img
