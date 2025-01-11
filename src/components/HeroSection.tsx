@@ -19,7 +19,7 @@ const HeroSection = () => {
       });
       setFeedback("Thanks for signing up! Check your inbox.");
       setModalOpen(false); // Only close modal on success
-    } catch (error) {
+    } catch (error: any) {
       setFeedback("Failed to send email. Please try again.");
       console.error("Error sending email:", error.response?.data || error.message);
     }
