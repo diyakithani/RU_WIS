@@ -1,9 +1,30 @@
 "use client"
 import React, { useState } from "react";
+import axios from "axios"
 
 const HeroSection = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [feedback, setFeedback] = useState("");
+
+  const handleSignUp = async () => {
+    if (!email || !email.includes("@")) {
+      setFeedback("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:3001/send-email", {
+        email,
+      });
+      setFeedback("Thanks for signing up! Check your inbox.");
+      setModalOpen(false); // Only close modal on success
+    } catch (error) {
+      setFeedback("Failed to send email. Please try again.");
+      console.error("Error sending email:", error.response?.data || error.message);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center bg-gradient-to-r from-purple-100 to-pink-200 min-h-screen py-10 px-4">
 
@@ -33,7 +54,7 @@ const HeroSection = () => {
       </div>
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md">
+          <div className="bg-pink rounded-lg shadow-lg p-6 w-11/12 max-w-md">
             <h2 className="text-2xl font-bold text-center mb-4">
               Sign Up for Our Newsletter
             </h2>
@@ -47,15 +68,21 @@ const HeroSection = () => {
             <div className="flex justify-end mt-4">
               <button
                 onClick={() => setModalOpen(false)}
-                className="px-4 py-2 mr-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
+                className="px-4 py-2 mr-2 bg-black rounded-lg hover:bg-gray-300 transition"
               >
                 Cancel
+              </button>
+              <button
+                onClick={handleSignUp}
+                className="px-4 py-2 mr-2 bg-black rounded-lg hover:bg-gray-300 transition">
+                Submit
               </button>
 
             </div>
           </div>
         </div>
-      )}
+      )
+      }
 
       <div className="flex mt-10 justify-center w-full">
         <img
@@ -66,7 +93,7 @@ const HeroSection = () => {
 
 
       </div>
-    </div>
+    </div >
   );
 };
 
