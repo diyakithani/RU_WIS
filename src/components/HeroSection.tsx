@@ -14,7 +14,7 @@ const HeroSection = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/send-email", {
+      const response = await axios.post("/api/email", {
         email,
       });
       setFeedback("Thanks for signing up! Check your inbox.");
